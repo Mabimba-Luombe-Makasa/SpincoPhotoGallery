@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(20,0,36);
+background: linear-gradient(232deg, rgba(20,0,36,1) 0%, rgba(124,0,158,0.9976365546218487) 35%, rgba(0,255,162,1) 100%);
+}
+
+.title {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Arial', sans-serif; 
+    margin-bottom: 20px; 
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.container {
+    max-width: 1200px;
+    width: 95%;
+}
+
+.slider-wrapper {
+    position: relative;
+}
+
+.slide-button {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    transform: translateY(-50%);
+
+}
+
+.slide-button:hover {
+    filter: drop-shadow(0 0 5px #ffffff);
+}
+
+#prev-slide {
+    left: -20px;
+    display: none;
+}
+
+#next-slide {
+    right: -20px;
+}
+
+.slider-wrapper .image-list {
+    display: grid;
+    gap: 18px;
+    font-size: 0;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.image-list::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper .image-list .image-item {
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.521);
+}
+
+.container .slider-scrollbar {
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.scrollbar-track {
+    height: 2px;
+    width: 100%;
+    background: #ccc;
+    position: relative;
+    border-radius: 4px;
+}
+
+.scrollbar-thumb {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: #000;
+    border-radius: inherit;
+    cursor: grab;
+}
+
+.scrollbar-thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+
+.scrollbar-track:hover {
+    height: 5px;
+}
+
+
+.scrollbar-thumb:active {
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+
+@media (max-width: 1023px) {
+    .slide-button {
+        display: none!important;
+    }
+
+    .image-list {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .image-item {
+        width: 280px;
+        height: 380px;
+    }
+
+    .scrollbar-thumb {
+        width: 20%;
+    }
+}
